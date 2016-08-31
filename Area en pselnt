@@ -1,0 +1,12 @@
+Proceso Areatriangulo
+	Definir base, altura, areat Como Real;
+	Escribir "Ingresar Base: ";
+	Leer base;
+	Escribir "Ingresar altura: ";
+	Leer altura;
+	
+	areat<-(base*altura)/2;
+	
+	Escribir "El Area es: ", areat;
+	
+FinProceso
