@@ -1,0 +1,13 @@
+Proceso Operadores
+	Definir A, B como enteros;
+	A<-2;
+	B<-22;
+	Escribir A=B;
+	Escribir A<>B;
+	Escribir A<B;
+	Escribir A>B;
+	Escribir A<=B;
+	Escribir A>=B;
+	Escribir (2*A)+(5*B);
+	
+FinProceso
