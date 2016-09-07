@@ -1,0 +1,18 @@
+Proceso Logica
+	Leer A,B,C
+	Si A>B Entonces
+		Si A>C Entonces
+			Mayor <-A
+		Sino
+			Mayor <-C
+		FinSi
+	Sino
+		Si B<C Entonces
+			Mayor <-B
+		Sino
+			Mayor <-C
+		FinSi
+		
+	FinSi
+	Escribir "El Mayor es: ", Mayor
+FinProceso
