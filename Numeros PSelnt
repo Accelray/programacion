@@ -1,0 +1,22 @@
+Proceso Numeros
+	Definir A,B,C como enteros;
+	Escribir ("Ingresar A: ") ;
+	Leer A;
+	Escribir ("Ingresar B: ") ;
+	Leer B;
+	Escribir ("Ingresar C: ") ;
+	Leer C;
+	Si NO(A>=0 & A<=10) Entonces
+		Escribir A,"No esta en el rango"
+    FinSi
+	Si NO(B>=0 & B<=10) Entonces
+		Escribir B,"No esta en el rango"
+	FinSi
+	Si NO(C>=0 & C<=10) Entonces;
+		Escribir C,"No esta en el rango"
+	FinSi
+	Si ((a>=0 & A<=10) & (B>=0 & B<=10) & (C>=0 & C<=10))
+		Promedio<-(A+B+C)/3
+		Escribir "El promedio es: ",Promedio
+	FinSi
+FinProceso
