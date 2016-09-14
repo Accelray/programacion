@@ -1,0 +1,30 @@
+// Numeros.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+
+void main ()
+{
+	int A,B,C,Promedio;
+	cout<<"Ingresar A: ";
+	cin>>A;
+	cout<<"ingresar B: ";
+	cin>>B;
+	cout<<"Ingresar C: ";
+	cin>>C;
+	if(!((A>=0)&&(A<=10)))
+		cout<<A<<"No esta en el rango";
+	if(!((B>=0)&&(B<=10)))
+		cout<<B<<"No esta en el rango";
+	if(!((C>=0)&&(C<=10)))
+		cout<<C<<"No esta en el rango";
+	if((A>=0)&&(A<=10)&&(B>=0)&&(B<=10)&&(C>=0)&&(C<=10))
+		{Promedio=(A+B+C)/3;
+		cout<<"El Promedio es: "<<Promedio;
+	}
+	getch();
+}
