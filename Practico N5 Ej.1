@@ -1,0 +1,32 @@
+// Carta.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+void main()
+{
+	int P;
+	cout<<"Ingresar P: ";
+	cin>> P;
+	if((0<P)&&(P<50)){
+		cout<<"Costo: 1.50";}
+	else
+		if((50<P)&&(P<=100)){
+			cout<<"Costo: 4.00";}
+	else
+		if((100<P)&&(P<=200)){
+			cout<<"Costo: 6.00";}
+	else
+		if((200<P)&&(P<=350)){
+			cout<<"Costo: 10.50";}
+	else
+		if((350<P)&&(P<=500)){
+			cout<<"Costo: 15.00";}
+	else 
+		if(P>500){
+			cout<<"No puede enviar carta";}
+
+	getch();
