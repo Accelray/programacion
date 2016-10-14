@@ -1,0 +1,23 @@
+// Restaurante.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+
+using namespace std;
+void main()
+{
+	int Hamb,HambQ,Papas,Soda;
+	float T;
+	cout<<"Cantidad de Hamb: ";
+	cin>> Hamb;
+	cout<<"Cantidad de HambQ: ";
+	cin>> HambQ;
+	cout<<"Cantidad de Papas: ";
+	cin>> Papas;
+	cout<<"Cantidad de Soda: ";
+	cin>> Soda;
+	T=(3*Hamb)+(5*HambQ)+(2*Papas)+(2.5*Soda);
+	cout<<"La cuenta es: "<<T;
+	getch();
