@@ -1,0 +1,54 @@
+// While.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+void main()
+{
+	int Registro,F,Cont=0;
+	float P1,P2,EF,EP,NF,Promedio=0;
+	cout<<"Ingresar Registro: ",
+	cin>>Registro;
+	while(Registro!=-999){
+		do{
+		cout<<"Ingresar Parcial 1: ";
+		cin>>P1;
+		}while(!((P1>=0)&&(P1<=100)));
+		do{
+		cout<<"Ingresar Parcial 2: ";
+		cin>>P2;
+		}while(!((P2>=0)&&(P2<=100)));
+		do{
+		cout<<"Ingresar Examen Final: ";
+		cin>>EF;
+		}while(!((EF>=0)&&(EF<=100)));
+		do{
+		cout<<"Ingresar Examen Practico: ";
+		cin>>EP;
+		}while(!((EP>=0)&&(EP<=100)));
+		do{
+		cout<<"Ingresar Faltas: ";
+		cin>>F;
+		}while((F>10)&&(F<=10));
+		if(F>10)
+			EF=0;
+		NF=(((P1+=P2)/2)*0.4)+(EP*0.2)+(EF*0.4);
+		if(NF>=51){
+			cout<<"Profesional";
+		cout<<Registro<<" "<<endl<<NF<<" ";}
+		else
+			if(NF<51){
+				cout<<"INFIERNO";}
+		cout<<endl;
+		cout<<"Ingresar Registro: ",
+		cin>>Registro;
+		cout<<endl;
+		Promedio=Promedio+NF;
+		Cont=Cont+1;
+	}
+	cout<<"Promedio: "<<Promedio/Cont;
+	getch();
+}
