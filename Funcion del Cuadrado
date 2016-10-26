@@ -1,0 +1,23 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+float area_cuadrado(float lado); //Prototipo de la funcion
+void main()
+{
+	float A,l;
+	//Validacion de la entrada
+	do{
+		cout<<"Ingresar lado: ";
+		cin>>l;
+	}while(l<=0);
+		A=area_cuadrado(l); //Lllamada de la funcion
+		cout<<"El Area del cuadrado: "<<A;
+		getch();
+}
+float area_cuadrado(float lado) //Declaracion de la funcion
+{
+	float Area;
+	Area=lado*lado;
+	return Area;
+}
