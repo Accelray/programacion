@@ -1,0 +1,40 @@
+// Menu Areas.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "math.h"
+
+using namespace std;
+void main()
+{
+	float A,Pi=3.14,R;
+	int Opcion,L,H,B;
+	do{
+	cout<<"Ingresar lado: ";
+	cin>>L;
+	cout<<"Ingresar radio: ";
+	cin>>R;
+	cout<<"Ingresar altura: ";
+	cin>>H;
+	cout<<"Ingresar base: ";
+	cin>>B;
+	cout<<endl;
+	cout<<"1.-Area Cuadrado"<<endl;
+	cout<<"2.-Area Circulo"<<endl;
+	cout<<"3.-Area Triangulo"<<endl;
+	cout<<"0.-Salir"<<endl;
+	cout<<"Elegir opcion: ";
+	cin>>Opcion;
+	switch(Opcion){
+	case 1: A=L*L;break;
+	case 2: A=Pi*pow(R,2);break;
+	case 3: A=(B*H)/2;break;
+	case 0: cout<<"Salir";break;
+	default: cout<<"Opcion Invalida"<<endl;
+	}
+	cout<<"El Area es: "<<A<<endl;
+	}while(Opcion!=0);
+	getch();
+}
