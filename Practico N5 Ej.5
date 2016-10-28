@@ -1,0 +1,34 @@
+// Estaciones del Año.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+void main()
+{
+	int DD,MM,AA;
+	do{
+	cout<<"Ingresar dia: ";
+	cin>>DD;
+	}while(!(DD>0)&&(DD<=31));
+	do{
+	cout<<"Ingresar mes: ";
+	cin>>MM;
+	}while(!((MM>0)&&(MM<=12)));
+	cout<<"Ingresar año: ";
+	cin>>AA;
+	if(((DD>=21)&&(MM>=9))||((DD<21)&&(MM<=12)))
+		cout<<"Primavera";
+	else
+		if(((DD>=21)&&(MM>=12))||((DD<21)&&(MM<=3)))
+			cout<<"Verano";
+	else
+		if(((DD>=21)&&(MM>=3))||((DD<20)&&(MM<=6)))
+			cout<<"Otoño";
+	else
+		if(((DD>=21)&&(MM>=6))||((DD<20)&&(MM<=9)))
+			cout<<"Invierno";
+	getch();
+}
