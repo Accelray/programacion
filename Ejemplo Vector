@@ -1,0 +1,49 @@
+// Ejemplo Vector.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 100
+
+using namespace std;
+
+void cargarvector(int a[], int tamaño);
+void mostrarvector (int a[], int tamaño);
+float promedio (int a[], int tamaño);
+
+void main()
+{
+	int n,a[MAX];
+	float Prom;
+	do{
+		cout<<"Valor n: ";
+		cin>> n;
+	}while(!((n>=0)&&(n<MAX)));
+	cargarvector(a,n);
+	mostrarvector(a,n);
+	promedio(a,n);
+	cout<<"Promedio: "<<promedio(a,n);
+	getch();
+}
+void cargarvector(int a[], int tamaño)
+{
+	for(int i=0;i<tamaño;i++)
+	{
+		 cout<<"a["<<i<<"]= ";
+		 cin>> a[i];
+	}
+}
+void mostrarvector (int a[], int tamaño)
+{
+	for(int i=0;i<tamaño;i++)
+		cout<<"a["<<i<<"]= "<<a[i]<<endl;
+}
+float promedio(int a[], int tamaño)
+{
+	float aux=0, Suma;
+	for(int i=0;i<tamaño;i++)
+	aux=aux+a[i];
+	Suma=(aux/tamaño);
+	return Suma;
+}
