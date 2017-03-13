@@ -1,0 +1,69 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+int menor(int a,int b);
+float metros(float m);
+float salario(float h);
+void main()
+{
+	int a,b,opcion,numero;
+	float m,h,metro,trabajo;
+	do{
+	cout<<"Ingresar numero 1: ";
+	cin>>a;
+	cout<<"Ingresar numero 2: ";
+	cin>>b;
+	cout<<"Ingresar millas: ";
+	cin>>m;
+	cout<<"Ingresar horas: ";
+	cin>>h;
+	cout<<endl;
+	cout<<"1.-Numero menor"<<endl;
+	cout<<"2.-Metros"<<endl;
+	cout<<"3.-Paga"<<endl;
+	cout<<"0.-Salir"<<endl;
+	cout<<"Elegir opcion: ";
+	cin>>opcion;
+	switch(opcion)
+	{
+	case 1: numero=menor(a,b);
+		cout<<"El menor es: "<<numero;break;
+	case 2: metro=metros(m);
+		cout<<"La distancia es: "<<metro;break;
+	case 3: trabajo=salario(h);
+		cout<<"La paga es: "<<trabajo;break;
+	case 0: cout<<"Salir";break;
+	default: cout<<"Opcion invalida"<<endl;
+	}
+	}while(opcion!=0);
+	getch();
+}
+int menor(int a,int b)
+{
+	int num;
+	if(a>b)
+		num=b;
+	else
+		num=a;
+	return num;
+}
+float metros(float m)
+{
+	float mts;
+	mts=m/1852;
+	return mts;
+}
+float salrio(float h)
+{
+	float p,r=250,e;
+	if(h<40)
+		p=r*h;
+	else
+	{
+		e=h-40;
+		p=(r*h)+(e*2*r);
+	}
+return p;
+}
