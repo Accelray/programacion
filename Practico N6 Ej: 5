@@ -1,0 +1,49 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#define MAX 100
+using namespace std;
+
+void cargarvector(float a[], int n);
+void mostrarvector(float a[], int n);
+
+void main()
+{
+	int n,c,inv;
+	float a[MAX];
+	cout<<"Ingrese el tamaño del vector: ";
+	cin>>n;
+	cargarvector(a,n);
+	mostrarvector(a,n);
+	inv=0;
+	for(c=0;c<n;c++)
+	{
+		if(a[c]!=a[n-c-1])
+			inv=1;
+	}
+	if(inv==1)
+		cout<<"No es capicua"<<endl;
+	else
+		cout<<"Si es capicua"<<endl;
+
+	getch();
+}
+
+void mostrarvector(float a[], int n)
+{
+	int i;
+	for(i=0;i<n;i++)
+	{
+		cout<<"a["<<i<<"]:"<<a[i]<<endl;
+	}
+
+}
+void cargarvector(float a[], int n)
+{
+	int i;
+	for(i=0;i<n;i++)
+	{
+		cout<<"Ingresa a["<<i<<"]: ";
+		cin>>a[i];
+	}
+}
