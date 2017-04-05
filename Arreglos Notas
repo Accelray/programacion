@@ -1,0 +1,64 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include "string"
+#define MAX 100
+using namespace std;
+
+void cargarvectorS(int Notas[],int n);
+void cargarvectorI(string Alumnos[],int n);
+void burbuja(int Notas[],string Alumnos[],int n);
+void mostrarvectores(int Notas[],string Alumnos[],int n);
+void main()
+{
+	int n,Notas[MAX];
+	string Alumnos[MAX];
+	do{
+		cout<<"Ingresar el tamaño del vector: "<<endl;
+		cin>>n;
+	}while((n<=0)||(n>MAX));
+
+	cargarvectorS(Notas,n);
+	cargarvectorI(Alumnos,n);
+	burbuja(Notas,Alumnos,n);
+	mostrarvectores(Notas,Alumnos,n);
+	getch();
+}
+void cargarvectorS(int Notas[],int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<"Notas["<<i<<"]: ";
+		cin>>Notas[i];
+	}
+}
+void cargarvectorI(string Alumnos[],int n)
+{
+	cin.ignore();
+	for(int i=0;i<n;i++)
+	{
+		cout<<"Alumnos["<<i<<"]: ";
+		getline(cin, Alumnos[i]);
+	}
+}
+void burbuja(int Notas[],string Alumnos[],int n)
+{
+	int Notaux;
+	string Alumnoaux;
+	for(int i=0;i<n;i++)
+		for(int j=i+1;j<n;j++)
+			if(Notas[i]<Notas[j])
+			{
+				Notaux=Notas[j];
+				Notas[j]=Notas[i];
+				Alumnos[j]=Alumnos[i];
+				Alumnos[i]=Alumnoaux;
+			}
+}
+void mostrarvectores(int Notas[],string Alumnos[],int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<Alumnos[i]<<"/t"<<Notas[i]<<endl;
+	}
+}
