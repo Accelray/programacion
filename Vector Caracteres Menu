@@ -1,0 +1,107 @@
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+#include <string>
+
+using namespace std;
+void main()
+{
+	int longitud,cont,pos,opcion;
+	char aux;
+	
+	string var1,var2,nombre; //Declarar strings
+	do{
+	cout<<endl<<"Ejemplo de uso de getline para ingresar cadena de caracteres";
+	cout<<endl<<"Ingrese un nombre: ";
+	getline(cin,nombre);
+	cout<<endl<<"Ejemplo de uso de length para determinar la longitud de un string";
+	longitud=nombre.length();
+	cout <<endl<<"El string tiene: "<<longitud;
+
+	cout<<endl<<"Ejemplo de uso de compare para determinar si dos cadenas son iguales";
+	cout<<endl<<"Redigite el nombre: ";
+	getline(cin,var2);
+
+	cout<<"1.-Numero de Vocales"<<endl;
+	cout<<"2.-Seccionar"<<endl;
+	cout<<"3.-Intercamcio"<<endl;
+	cout<<"4.-Encontrar Caracteres"<<endl;
+	cout<<"5.-Invertir"<<endl;
+	cout<<"6.-Quitar Vocales"<<endl;
+	cout<<"0.-Salir"<<endl;
+	cout<<"Elegir opcion: ";
+	cin>>opcion;
+	if (nombre.compare(var2) == 0 )
+		cout<<endl<<"Los datos coinciden"<<endl;
+	else 
+		cout << nombre << " es diferente que "<<var2 << " :1"<<endl;
+	switch(opcion)
+	{
+	case 1: 
+		// Numero de vocales en el nombre
+		cont=0;
+		cout<<endl<<"Ejemplo de uso de elementos individuales: "<<endl;
+		cout<<endl<<"Contar vocales"<<endl<<endl;
+
+		for (int i=0;i<longitud;i++)
+			if (nombre[i]=='a' || nombre[i]=='e'||nombre[i]=='i'||nombre[i]=='o'||nombre[i]=='u')
+				cont++;
+
+		cout<<"Numero de vocales: "<<cont<<endl;
+		cout<<endl<<"Ejemplo de uso de elementos individuales con at: "<<endl;
+		cont=0;
+		for (int i=0;i<longitud;i++)
+			if (nombre.at(i)=='a' || nombre.at(i)=='e'||nombre.at(i)=='i'||nombre.at(i)=='o'||nombre.at(i)=='u')
+				cont++;
+		cout<<"Numero de vocales: "<<cont<<endl;break;
+	case 2: 
+		// Sacar una parte del string
+		cout<<endl<<"Ejemplo de uso de substr"<<endl;
+		cout<<endl<<"Ingrese desde donde desea extraer el string: ";
+		cin>>pos;
+		cout <<nombre.substr(pos,longitud-pos);
+		cin.ignore();break;
+	case 3: 
+		// Intercambia string
+		cout<<endl <<"Intercambia variables: "<<endl;
+		nombre.swap(var2);
+		cout<<nombre<<endl;
+		cout<<var2;break;
+	case 4: 	
+		//Encuentra caracteres en string
+		cout<<var2.find(' ');
+		longitud=var2.length();
+		for (int i=0;i<longitud;i++)
+			if (var2.at(i)==' ' )
+				cout << endl<<"Existe un espacio en: "<<i;break;
+	case 5: 
+		// Invertir una frase 
+		var2="      ";
+		longitud=nombre.length();
+		for (int i=0;i<longitud/2;i++)
+		{
+			aux=nombre[i];
+			nombre[i]=nombre[longitud-1-i];
+			nombre[longitud-1-i]=aux;
+		}
+		cout <<"La cadena invertida es: "<< nombre<<endl;
+		if (var2.compare(nombre)==0)
+			cout<<"Es un palindromo";break;
+	case 6: 
+		//Quitar las vocales
+		var2="     ";
+		cont=0;
+		longitud=nombre.length();
+		for (int i=0;i<longitud;i++)
+			if (nombre[i]!='a' && nombre[i]!='e'&& nombre[i]!='i'&& nombre[i]!='o'&& nombre[i]!='u')
+			{
+				var2[cont]=nombre[i];
+				cont++;
+			}
+		cout<<"Sin vocales es: "<<var2;break;
+	case 0: cout<<"Salir";break;
+	default: cout<<"Opcion invalida"<<endl;
+	}
+	}while(opcion!=0);
+	getch();
+}
