@@ -1,0 +1,148 @@
+// Pregunta 3-Examen Parcial 3er.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream>
+#include "stdio.h"
+#include <string>
+#include "conio.h"
+#include "math.h"
+
+#define MAX 100
+
+using namespace std;
+
+struct t_empleados 
+{
+	int id;
+	string nombre,fechanac;
+	float sb,sn;
+};
+
+t_empleados empleados;
+FILE *Salario;
+
+//Prototipos
+void cargarvector(t_empleados v[],int n);
+void clasificarburbuja(t_empleados v[],int n);
+bool busquedacodigo(t_empleados v[],int n, int clave,int &z );
+void listarplanilla(t_empleados v[],int n);
+float salarioneto(float sb);
+float promedio(t_empleados v[],int n);
+
+// El cuerpo principal
+void main()
+{
+	int id,n,z,clave,opcion;
+	float sb;
+	do{
+		cout<<"Valor n: ";
+		cin>>n;
+	}while(!((n>=0)&&(n<MAX)));
+	int vec[MAX];
+	do{
+		cout<<"1.-cargarvector";
+		cout<<"2.-clasificarburbuja";
+		cout<<"3.-busquedacodigo";
+		cout<<"4.-listarplanilla";
+		cout<<"5.-salarioneto";
+		cout<<"6.-promedio";
+		cout<<"0.-Salir";
+		cout<<"Elegir opcion: ";
+		cin>>opcion;
+
+		switch(opcion)
+		{
+		case 1:cargarvector(vec[],n);break;
+		case 2:clasificarburbuja(vec[],n);break;
+		case 3:busquedacodigo(vec[],n,clave,z);break;
+		case 4:listarplanilla(vec[],n);break;
+		case 5:salarioneto(sb);break;
+		case 6:promedio(vec[],n);break;
+		case 0:cout<<"Salir";break;
+		default:cout<<"Error";
+		}
+	}while(opcion!=0);
+	getch();
+	return;
+}
+void cargarvector(t_empleados v[],int n)
+{
+	int id;
+	int vec[MAX];
+	Salario=fopen("Empleado.dat","rb+");
+	if(Salario==NULL)
+	{
+		Salario=fopen("Empleado.dat","wb");
+		cout<<"Numero ID: ";
+		cin>>id;
+		fread(&empleados,sizeof(empleados),1,Salario);
+		while(!feof(Salario))
+		{
+			if(empleados.id==id) 
+			{ 
+				cout << "\n\n\n\rID duplicado !!!"; 
+				fclose(Salario); 
+				getch(); 
+				return; 
+			} 
+    fread(&empleados,sizeof(empleados),1,Salario); 
+  } 
+  cin.ignore();
+  cout<<"\n\rNombre: "; 
+  getline(cin,empleados.nombre);
+  cin.ignore();
+  cout<<"\n\rFecha de Nacimiento: "; 
+  getline(cin,empleados.fechanac);
+  cout<<"\n\rSB : "; 
+  cin>>empleados.sb; 
+  cout << "\n\rSN  : "; 
+  cin>>empleados.sn; 
+  for(int i=0;i<n;i++)
+	{
+		 cout<<"a["<<i<<"]= ";
+		 cin>>vec[i];
+	}
+	getch();
+	return;
+  empleados.id=id; 
+  fwrite(&empleados,sizeof(empleados),1,Salario); // Grabar el Registro  
+  fclose(Salario); // Cierra el archivo 
+  cout << "\n\n\n\rEmpleado registrado !!!"; 
+  cout << "\n\r<<< Oprima cualquier tecla para continuar >>>"; 
+  getch(); 
+  return; 
+}
+void clasificarburbuja(t_empleados v[],int n)
+{
+	int vec[MAX];
+	float aux;
+	for(int i=0;i<(n-1);i++)
+	{
+		for(int j=i+1;j<n;j++)
+		{
+			if (vec[i]<vec[j])
+			{
+				aux=vec[i];
+				vec[i]=vec[j];
+				vec[j]=aux;
+			}
+		}
+		getch();
+		return;
+}
+bool busquedacodigo(t_empleados v[],int n,int clave,int &z )
+{
+	int id,pos,codigo;
+	cout<<"Ingreso el codigo a buscar";
+	cin>> codigo;
+	if (bandera)
+	{
+		cout<<"Codigo: "<<vec[pos].id;
+		cout<<"Nombre: "<<vec[pos].nombre;
+		cout<<"Fecha Nacimiento: "<<vec[pos].fechanac;
+		cout<<"SalarioBruto: "<<vec[pos].sb;
+	}
+	else
+		cout<<" No existe el codigo del empleado"<<endl;
+			fclose(
